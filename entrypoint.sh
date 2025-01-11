@@ -13,17 +13,14 @@ cd repo
 
 # Run Flask app for Spotify authentication
 echo "Starting Flask app for authentication..."
-flask run
+flask run --host=0.0.0.0 --port=5000 &
 
-# Wait for Flask app to signal authentication completion
-# Needs attention
-echo "Waiting for authentication to complete..."
-while [ ! -f /tmp/auth_complete ]; do
-    sleep 1
-done
+# Prompt the user to confirm authentication 
+echo "Please authenticate using the Flask app. Once done, press Enter to continue."
+read -p "Press Enter once authentication is complete."
 
 echo "Authentication complete! Stopping Flask app..."
-pkill -f "python3 auth_app/app.py"
+pkill -f "flask run"
 
 # Start the Discord bot
 echo "Starting Discord bot..."
