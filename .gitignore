@@ -2,3 +2,4 @@
 setup.json
 spotify.json
 .cache
+.env
