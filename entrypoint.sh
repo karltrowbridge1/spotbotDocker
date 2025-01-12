@@ -11,12 +11,15 @@ echo "Cloning branch $BRANCH from $REPO_URL..."
 git clone --branch "$BRANCH" "$REPO_URL" repo
 cd repo
 
+# Install dependencies for Flask and bot
+pip install --no-cache-dir -r requirements.txt
+
 # Run Flask app for Spotify authentication
 echo "Starting Flask app for authentication..."
 flask run --host=0.0.0.0 --port=5000 &
 
 # Prompt the user to confirm authentication 
-echo "Please authenticate using the Flask app. Once done, press Enter to continue."
+echo "Please authenticate using the Flask app."
 read -p "Press Enter once authentication is complete."
 
 echo "Authentication complete! Stopping Flask app..."

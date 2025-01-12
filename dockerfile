@@ -7,15 +7,12 @@ RUN apt-get update && apt-get install -y git && apt-get clean
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the entrypoint script
+# Copy the entrypoint script and setup file
 COPY entrypoint.sh .
+COPY setup.json .
 
 # Make the script executable
 RUN chmod +x entrypoint.sh
-
-# Install dependencies for Flask and bot
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the Flask app port
 EXPOSE 5000
