@@ -9,6 +9,9 @@ REPO_URL=${GIT_REPO:-"https://github.com/wildxmxtt/spotbot2.git"}
 
 echo "Cloning branch $BRANCH from $REPO_URL..."
 git clone --branch "$BRANCH" "$REPO_URL" repo
+
+# Copy the setup file to the github repo directory
+cp setup.json repo
 cd repo
 
 # Install dependencies for Flask and bot
@@ -27,4 +30,4 @@ pkill -f "flask run"
 
 # Start the Discord bot
 echo "Starting Discord bot..."
-python3 bot.py
+python3 spotbot.py

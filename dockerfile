@@ -9,7 +9,7 @@ WORKDIR /app
 
 # Copy the entrypoint script and setup file
 COPY entrypoint.sh .
-COPY setup.json .
+COPY setup.json /app
 
 # Make the script executable
 RUN chmod +x entrypoint.sh
