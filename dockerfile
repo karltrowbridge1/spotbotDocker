@@ -1,11 +1,16 @@
-# Use a lightweight Python base image
-FROM python:3.10.9
-
-# Install Git for pulling code
-RUN apt-get update && apt-get install -y git && apt-get clean
+# Use Python 3.9 Alpine base image
+FROM python:3.9-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
+
+# Install necessary system dependencies
+RUN apk add --no-cache \
+    build-base \
+    libffi-dev \
+    openssl-dev \
+    git \
+    bash
 
 # Copy the entrypoint script and setup file
 COPY entrypoint.sh .

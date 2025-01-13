@@ -18,8 +18,8 @@ Correctly configure `setup.json` in the working directory. The configuration of 
 
 Build the image:
 
-`docker build -t spotbot .`
+`docker build -t spotbot2 .`
 
 Run the container:
 
-`docker run --rm --env-file .env -p 5000:5000 discord-bot`
+`docker run --rm --env-file .env -p 5000:5000 spotbot2`
