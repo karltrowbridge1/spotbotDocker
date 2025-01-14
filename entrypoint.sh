@@ -1,7 +1,13 @@
 #!/bin/bash
 
-# Exit after any failed command
-set -e
+# Define the path for the setup file (mounted via a volume)
+SETUP_FILE=/app/setup/setup.json
+
+# Verify if the setup file exists
+if [ ! -f "$SETUP_FILE" ]; then
+  echo "Error: Setup file ($SETUP_FILE) not found!"
+  exit 1
+fi
 
 # Clone the specified branch or default to 'main'
 BRANCH=${GIT_BRANCH:-main}
@@ -11,8 +17,9 @@ echo "Cloning branch $BRANCH from $REPO_URL..."
 git clone --branch "$BRANCH" "$REPO_URL" repo
 
 # Copy the setup file to the github repo directory
-cp setup.json repo
 cd repo
+echo "Copying setup file into /repo..."
+cp "$SETUP_FILE" /app/repo/
 
 # Install dependencies for Flask and bot
 pip install --no-cache-dir -r requirements.txt

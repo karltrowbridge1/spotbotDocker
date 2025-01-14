@@ -12,7 +12,9 @@ GIT_REPO=https://github.com/wildxmxtt/spotbot2.git
 ```
 
 
-Correctly configure `setup.json` in the working directory. The configuration of `setup.json` can be found in the [spotbot2 repository](https://github.com/wildxmxtt/spotbot2).
+A correctly configured `setup.json` setup file is needed. The configuration of `setup.json` can be found in the [spotbot2 repository](https://github.com/wildxmxtt/spotbot2).
+
+This file should be placed in a setup directory and mounted via volume when running.
 
 ## Running the Container
 
@@ -22,4 +24,10 @@ Build the image:
 
 Run the container:
 
-`docker run --rm --env-file .env -p 5000:5000 spotbot2`
+```bash
+docker run --rm -it \
+  --env-file .env \
+  -v /path/to/local/setupContainingJSON:/app/setup \
+  -p 5000:5000 \
+  spotbot2
+```

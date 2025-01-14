@@ -3,3 +3,6 @@ setup.json
 spotify.json
 .cache
 .env
+
+# Config directory
+setup/
