@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the path for the setup file (mounted via a volume)
-SETUP_FILE=/app/setup.json
+SETUP_FILE=/app/setup/setup.json
 
 # Verify if the setup file exists
 if [ ! -f "$SETUP_FILE" ]; then
