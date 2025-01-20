@@ -15,7 +15,7 @@ RUN apk add --no-cache \
     git \
     bash
 
-# Copy the entrypoint script and setup file
+# Copy the entrypoint script
 COPY . .
 
 # Make the script executable

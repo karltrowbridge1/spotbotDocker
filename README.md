@@ -31,3 +31,5 @@ docker run --rm -it \
   -p 5000:5000 \
   spotbot2
 ```
+
+After authenticating, hit <Enter> to close the flask app and start SpotBot
