@@ -6,3 +6,6 @@ spotify.json
 
 # Config directory
 setup/
+
+# Docker work
+compose.yml
